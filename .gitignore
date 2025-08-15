@@ -82,3 +82,4 @@ process_report_*
 # Amazon Q configuration (except rules)
 .amazonq/
 !.amazonq/rules/
+.amazonq_exported_chats/
