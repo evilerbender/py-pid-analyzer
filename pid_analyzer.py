@@ -112,7 +112,7 @@ class ProcessAnalyzer:
         """Get network connections"""
         try:
             conns = []
-            for conn in self.process.connections():
+            for conn in self.process.net_connections():
                 conns.append({
                     'fd': conn.fd,
                     'family': conn.family.name,
