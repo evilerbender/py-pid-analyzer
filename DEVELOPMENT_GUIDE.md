@@ -9,8 +9,10 @@ A Python utility for analyzing process IDs with specialized enhanced analysis fo
 
 ### Core Components
 - **`pid_analyzer.py`** - Main analyzer with ProcessAnalyzer class
-- **`requirements.txt`** - Dependencies (psutil>=5.9.0, boto3>=1.26.0)
+- **`pyproject.toml`** - UV project configuration and dependencies
+- **`requirements.txt`** - Legacy pip dependencies (psutil>=5.9.0, boto3>=1.26.0)
 - **`README.md`** - Project description and requirements
+- **`HOWTO.md`** - Setup and usage guide with UV instructions
 - **`TODO.md`** - Feature implementation roadmap
 - **`DEVELOPMENT_GUIDE.md`** - Core project direction and style guidelines
 - **`FUTURE_ROADMAP.md`** - Ideas for future features and enhancements selection
@@ -141,35 +143,50 @@ if '[TYPE]_analysis' in info:
 ```
 py-pid-analyzer/
 ├── pid_analyzer.py          # Main application
-├── requirements.txt         # Dependencies
+├── pyproject.toml          # UV project configuration
+├── uv.lock                 # Dependency lock file
+├── requirements.txt        # Legacy pip dependencies
 ├── README.md               # Project description
+├── HOWTO.md                # Setup and usage guide
 ├── TODO.md                 # Implementation roadmap
 └── DEVELOPMENT_GUIDE.md    # This file
 ```
 
 ## Dependencies
 - **psutil**: Linux process information (cross-platform library used in Linux-only mode)
-- **boto3**: AWS services (S3, CloudWatch Logs)
+- **boto3**: AWS services (S3, CloudWatch Logs) - optional for cloud output
 - **Standard library**: os, sys, argparse, subprocess, json, smtplib, pathlib
 
 **Note**: While psutil is cross-platform, this project uses it exclusively for Linux process analysis.
 
+### Development Setup
+```bash
+# Using UV (recommended)
+uv sync
+
+# Add development dependencies
+uv add --dev pytest pytest-cov
+
+# Run tests
+uv run pytest
+```
+
 ## Usage Examples
 ```bash
-# Interactive mode with process selection
-python3 pid_analyzer.py
+# Interactive mode with process selection (UV recommended)
+uv run pid_analyzer.py
 
 # Direct PID analysis
-python3 pid_analyzer.py 1234
+uv run pid_analyzer.py 1234
 
 # Non-interactive mode
-python3 pid_analyzer.py 1234 --non-interactive
+uv run pid_analyzer.py 1234 --non-interactive
 
 # Output to file
-python3 pid_analyzer.py 1234 --output file --file-path analysis.txt
+uv run pid_analyzer.py 1234 --output file --file-path analysis.txt
 
 # Output to S3
-python3 pid_analyzer.py 1234 --output s3 --s3-uri s3://bucket/analysis.txt
+uv run pid_analyzer.py 1234 --output s3 --s3-uri s3://bucket/analysis.txt
 ```
 
 ## Optional Libraries Implementation Guidelines

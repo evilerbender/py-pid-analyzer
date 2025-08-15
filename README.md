@@ -31,6 +31,17 @@ PY-PID-ANALYZER provides comprehensive process analysis capabilities, including 
 
 ## Installation
 
+### Using UV (Recommended)
+```bash
+# Clone repository
+git clone <repository-url>
+cd py-pid-analyzer
+
+# UV automatically creates virtual environment and installs dependencies
+uv sync
+```
+
+### Using pip
 ```bash
 # Clone repository
 git clone <repository-url>
@@ -44,29 +55,32 @@ pip install -r requirements.txt
 
 ### Interactive Mode
 ```bash
-# Launch interactive process selection
+# Using UV (recommended)
+uv run pid_analyzer.py
+
+# Using Python directly
 python3 pid_analyzer.py
 ```
 
 ### Direct PID Analysis
 ```bash
-# Analyze specific process
-python3 pid_analyzer.py 1234
+# Using UV
+uv run pid_analyzer.py 1234
 
 # Non-interactive mode
-python3 pid_analyzer.py 1234 --non-interactive
+uv run pid_analyzer.py 1234 --non-interactive
 ```
 
 ### Output Options
 ```bash
 # Output to file
-python3 pid_analyzer.py 1234 --output file --file-path analysis.txt
+uv run pid_analyzer.py 1234 --output file --file-path analysis.txt
 
 # Output to S3
-python3 pid_analyzer.py 1234 --output s3 --s3-uri s3://bucket/analysis.txt
+uv run pid_analyzer.py 1234 --output s3 --s3-uri s3://bucket/analysis.txt
 
 # Output to CloudWatch Logs
-python3 pid_analyzer.py 1234 --output cloudwatch --log-group /aws/analysis
+uv run pid_analyzer.py 1234 --output cloudwatch --log-group /aws/analysis
 ```
 
 ## Dependencies
@@ -88,8 +102,11 @@ Optional libraries provide enhanced functionality while maintaining core compati
 ```
 py-pid-analyzer/
 ├── pid_analyzer.py          # Main application
-├── requirements.txt         # Core dependencies
+├── pyproject.toml          # UV project configuration
+├── uv.lock                 # Dependency lock file
+├── requirements.txt        # Legacy pip requirements
 ├── README.md               # This file
+├── HOWTO.md                # Setup and usage guide
 ├── TODO.md                 # Implementation roadmap
 ├── DEVELOPMENT_GUIDE.md    # Development guidelines
 ├── FUTURE_ROADMAP.md       # Long-term vision
@@ -97,6 +114,8 @@ py-pid-analyzer/
 ```
 
 ## Development
+
+See [HOWTO.md](HOWTO.md) for setup and usage instructions.
 
 See [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md) for:
 - Adding new specialized analyzers
