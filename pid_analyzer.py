@@ -690,7 +690,11 @@ def main():
         response = input("Root privileges required for complete analysis. Escalate permissions? (y/N): ")
         if response.lower() in ['y', 'yes']:
             try:
-                subprocess.run(['sudo', sys.executable] + sys.argv, check=True)
+                # Preserve the selected PID when escalating
+                escalated_args = sys.argv.copy()
+                if args.pid and str(args.pid) not in escalated_args:
+                    escalated_args.append(str(args.pid))
+                subprocess.run(['sudo', sys.executable] + escalated_args, check=True)
                 sys.exit(0)
             except subprocess.CalledProcessError:
                 print("Failed to escalate privileges", file=sys.stderr)
