@@ -101,6 +101,10 @@ Each specialized analyzer should include:
 - [ ] Create configuration file for default settings
 - [ ] Add progress indicators for long operations
 - [ ] Implement keyboard shortcuts in interactive mode
+- [ ] Add network-based process selection (processes listening on ports)
+- [ ] Add process selection by established network connections
+- [ ] Filter processes by specific port numbers or connection states
+- [ ] Show network activity summary in process selection menu
 
 ### 🤖 Automation Interfaces
 - [ ] JSON output format for programmatic use
