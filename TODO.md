@@ -90,6 +90,9 @@ Each specialized analyzer should include:
 - [ ] Add comprehensive error handling and logging
 - [ ] Optimize memory usage for large process lists
 - [ ] Add unit tests for core functionality
+- [ ] Implement semantic versioning using UV utility (model after UV's own repository: https://github.com/astral-sh/uv/blob/main/pyproject.toml)
+- [ ] Create pyproject.toml with version management and UV build system integration
+- [ ] Add UV-based dependency management and lock file support
 
 ### 🎨 UX Enhancements
 - [ ] Add color-coded output for better readability
