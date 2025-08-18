@@ -54,9 +54,12 @@ analysis_*.json
 analysis_*.html
 analysis_*.csv
 reports/
-output/
 temp/
 tmp/
+# Ignore output files but not source code in pid_analyzer/output/
+/*.out
+/output/
+/reports/
 
 # AWS credentials
 .aws/
@@ -80,6 +83,6 @@ pid_analysis_*
 process_report_*
 
 # Amazon Q configuration (except rules)
-.amazonq/
+.amazonq/*
 !.amazonq/rules/
 .amazonq_exported_chats/

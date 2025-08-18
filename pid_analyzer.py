@@ -51,8 +51,20 @@ def is_webserver_process(info):
     cmdline = info['cmdline'].lower()
     name = info['name'].lower()
     
-    return (name in ['httpd', 'apache2', 'nginx', 'haproxy'] or
-            any(indicator in cmdline for indicator in ['httpd', 'apache2', 'nginx', 'haproxy']))
+    # Check process name first (most reliable)
+    if name in ['httpd', 'apache2', 'nginx', 'haproxy']:
+        return True
+    
+    # For command line checks, be more specific to avoid false positives
+    # Check for actual web server executables, not just mentions in arguments
+    cmdline_parts = cmdline.split()
+    if cmdline_parts:
+        executable = cmdline_parts[0]
+        executable_name = executable.split('/')[-1]  # Get basename
+        if executable_name in ['httpd', 'apache2', 'nginx', 'haproxy']:
+            return True
+    
+    return False
 
 def is_redis_process(info):
     """Check if process is a Redis server"""

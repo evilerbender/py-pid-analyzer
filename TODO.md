@@ -6,6 +6,7 @@
 - [x] Java Applications (Tomcat, Spring, Jetty, WildFly/JBoss)
 - [x] Web Servers & Reverse Proxies (Apache HTTP Server, Nginx, HAProxy)
 - [x] Systemd-managed processes (service analysis, unit files, dependencies, resource limits, journal logs)
+- [x] Fixed webserver detection false positives (improved precision to avoid misidentifying processes like node_exporter)
 
 ### 🔄 Partially Implemented
 - [~] Redis Database Server (basic analysis implemented, needs config file parsing enhancement)
