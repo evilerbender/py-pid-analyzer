@@ -54,9 +54,12 @@ analysis_*.json
 analysis_*.html
 analysis_*.csv
 reports/
-output/
 temp/
 tmp/
+# Ignore output files but not source code in pid_analyzer/output/
+/*.out
+/output/
+/reports/
 
 # AWS credentials
 .aws/
