@@ -83,6 +83,6 @@ pid_analysis_*
 process_report_*
 
 # Amazon Q configuration (except rules)
-.amazonq/
+.amazonq/*
 !.amazonq/rules/
 .amazonq_exported_chats/
