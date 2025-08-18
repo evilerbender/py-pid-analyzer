@@ -5,6 +5,10 @@
 ### ✅ Completed
 - [x] Java Applications (Tomcat, Spring, Jetty, WildFly/JBoss)
 - [x] Web Servers & Reverse Proxies (Apache HTTP Server, Nginx, HAProxy)
+- [x] Systemd-managed processes (service analysis, unit files, dependencies, resource limits, journal logs)
+
+### 🔄 Partially Implemented
+- [~] Redis Database Server (basic analysis implemented, needs config file parsing enhancement)
 
 ### 🔲 Pending Implementation
 
@@ -12,7 +16,6 @@
 - [ ] MySQL
 - [ ] PostgreSQL
 - [ ] MongoDB
-- [ ] Redis
 
 #### Container Runtimes
 - [ ] Docker
@@ -48,7 +51,6 @@
 
 #### Scheduled Jobs & Task Schedulers
 - [ ] Cron jobs (crontab analysis)
-- [ ] Systemd timers
 - [ ] At jobs (atd)
 - [ ] Anacron
 - [ ] Kubernetes CronJobs

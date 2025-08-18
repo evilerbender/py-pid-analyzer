@@ -19,6 +19,7 @@ PY-PID-ANALYZER provides comprehensive process analysis capabilities, including 
 - **Enhanced Analysis for**:
   - Java Applications (Tomcat, Spring, Jetty, WildFly/JBoss)
   - Web Servers & Reverse Proxies (Apache HTTP Server, Nginx, HAProxy)
+  - Systemd-managed processes (service analysis, unit files, dependencies, resource limits, journal logs)
 
 ### 🔄 Planned Enhancements
 - Database servers (MySQL, PostgreSQL, MongoDB, Redis)
